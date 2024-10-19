@@ -54,4 +54,14 @@ flag_res_byts = "04ee9855208a2cd59091d04767ae47963170d1660df7f56f5faf"
 flag = xor_truncate_after_short_string(res_byts , bytes.fromhex(flag_res_byts))
 print("the flag is", flag)
 
+# generate all possible byte values for a single byte.
+all_bytes = range(256)
 
+def xor_with_single_byte(b, sb):
+    return bytes([b ^ byt for byt in sb])
+
+result = "73626960647f6b206821204f21254f7d694f7624662065622127234f726927756d"
+
+for byte in all_bytes:
+    # since the encryption is done with a single byte.
+    print(xor_with_single_byte(byte, bytes.fromhex(result)))
