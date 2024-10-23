@@ -83,4 +83,5 @@ print(extended_gcd(64,36))
 print(extended_gcd(26513,32321))
 
 # ---------------------------------------------------------------------------------------------------------
-
+# a = x mod b is saying that a is x units away from b. You see, if b divides a it is 0 units away.
+print(8146798528947%17)
