@@ -23,6 +23,15 @@ print(gcd(66528, 52920))
 print(eff_gcd(66528, 52920))
 
 # ---------------------------------------------------------------------------------------------------------
+# The idea here is that we can see the gcd(x,y) = ax + by.
+# This actually is nothing but an effect of seeing both x and y in terms of the gcd.
+# How? What does division even mean? Firstly, I see every number in terms of single units i.e 1.
+# and then addition simply means joining multiple 1's together.
+# subtraction is the opposite.
+# multiplication is addition performed n times.
+# division is looking at the result of multiplication and seperating/grouping 1's at n boundaries.
+# kind of like this II II II is 6. and as you can see it is 2 added 3 times. and division is value in each bucket: II.
+# power is nothing but multiplication applied n times.
 def extended_gcd(x, y):
     numerators = []
     denominators = []
@@ -73,4 +82,5 @@ print(extended_gcd(12,8))
 print(extended_gcd(64,36))
 print(extended_gcd(26513,32321))
 
+# ---------------------------------------------------------------------------------------------------------
 
