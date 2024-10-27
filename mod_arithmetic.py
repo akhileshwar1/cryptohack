@@ -85,3 +85,23 @@ print(extended_gcd(26513,32321))
 # ---------------------------------------------------------------------------------------------------------
 # a = x mod b is saying that a is x units away from b. You see, if b divides a it is 0 units away.
 print(8146798528947%17)
+
+# ---------------------------------------------------------------------------------------------------------
+# find the quadratic residue. in a^2 = x mod p, a is the square root of x in the modulus field.
+
+# checks if the remainder is a quadratic residue and returns the square root.
+def quadratic_residue(modulus, remainder):
+    for i in range(1, modulus-1):
+        rem = i*i % modulus
+        if rem == remainder:
+            return i
+
+    return -1
+
+print(quadratic_residue(29, 18))
+print(quadratic_residue(29, 14))
+print(quadratic_residue(29, 6))
+print(quadratic_residue(29, 11))
+
+# a better way is to find by using the legendre's symbol (a/p) where it is 1 for quadratic residue and -1 for not.
+# (a/p) = a^(p - 1)/2 mod p
