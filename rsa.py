@@ -47,3 +47,14 @@ d = 1117590121064301426254822247344953309137884826949051885047439968169054728166
 signed_message = pow(m_hash, d, N)
 print("signed message is")
 print(signed_message)
+
+# NOTE: This means that if gcd(m, n) = 1, then φ(m) φ(n) = φ(mn). Proof outline: Let A, B, C be the sets of positive integers which are coprime to and less than m, n, mn, respectively, so that |A| = φ(m), etc. Then there is a bijection between A × B and C by the Chinese remainder theorem. 
+
+# NOTE: We don't count φ(n) by iterating till n and find if each integer is coprime because that will involve taking the gcd for each of the numbers.
+# In effect, it will take n * O(i=1∑n−1log(i)), and n is huge. Therefore prime factorization is better, but even that requires advanced methods and they too fall short for very large n.
+# like something in the range of 2048 bits i.e 256 bytes! for comparison, an int type is just 4 bytes. 2^32 = 4294967296.
+
+# NOTE: our gcd roughly makes the next number in contention to half so we can say, O(log2min(a, b)), but this implicitly assumes that division is O(1).
+# For larger numbers division is not O(1) and it will dominate the time complexity!
+
+# NOTE: 829 bits N was factorized in 2020 or so. Good for a decade or so now. Quantum can break rsa in the future.
