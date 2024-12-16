@@ -1,4 +1,6 @@
 from mod_arithmetic import extended_gcd
+import hashlib
+
 # E:Y^2 =X^3+497X+1768 mod 9739
 # Given above is an elliptic curve, it is basically a cubic equation that behaves like a good trapdoor function.
 # When you start from a point p, and add p to itself multiple times, what you end up lets call it p' tends to be something
@@ -104,3 +106,16 @@ def multiply_point(P, n, O, p, a):
 
 P = (2339, 2213)
 print("scalar multiplying P 7863 times is", multiply_point(P, 7863, (None, None), p, a))
+
+Qa = (815, 3190)
+nb = 1829
+S = multiply_point(Qa, nb, (None, None), p, a)[0] # secret key
+S = str(S)
+
+sha1_hash = hashlib.sha1()
+sha1_hash.update(S.encode('utf-8'))
+
+# Get the hexadecimal representation of the hash
+hash_value = sha1_hash.hexdigest()
+
+print(f"SHA-1 Hash: {hash_value}")
